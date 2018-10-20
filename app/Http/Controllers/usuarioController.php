@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\reciclausers;
 
 class usuarioController extends Controller
 {
@@ -14,7 +15,9 @@ class usuarioController extends Controller
     public function index()
     {
         // Utilizado para mostrar la lista de los usuarios
-        return 'Hola Mundo';
+        //return 'Hola Mundo nuevo';
+        $usuarios = reciclausers::all();
+        return $usuarios;
     }
 
     /**
@@ -47,6 +50,7 @@ class usuarioController extends Controller
     public function show($id)
     {
         // Muestra solo un usuario
+        return 'show';
     }
 
     /**
