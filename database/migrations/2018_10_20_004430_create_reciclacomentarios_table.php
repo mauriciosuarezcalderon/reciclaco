@@ -15,7 +15,10 @@ class CreateReciclacomentariosTable extends Migration
     {
         Schema::create('reciclacomentarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('usuId')->unsigned();
+            $table->integer('calificacion');
             $table->timestamps();
+            $table->foreign('usuId')->references('id')->on('reciclausers');
         });
     }
 

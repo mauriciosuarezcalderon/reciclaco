@@ -15,6 +15,10 @@ class CreateReciclaimagensTable extends Migration
     {
         Schema::create('reciclaimagens', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('descripcion', 100);
+            $table->string('menuUrl', 100)->nullable();
+            $table->binary('imagen')->nullable();
+            $table->boolean('status', 1)->default(true);
             $table->timestamps();
         });
     }

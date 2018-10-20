@@ -15,7 +15,11 @@ class CreateReciclaeducatesTable extends Migration
     {
         Schema::create('reciclaeducates', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('descripcion', 100);
+            $table->integer('imagenId')->unsigned();
+            $table->boolean('status', 1)->default(true);
             $table->timestamps();
+            $table->foreign('imagenId')->references('id')->on('reciclaimagens');
         });
     }
 

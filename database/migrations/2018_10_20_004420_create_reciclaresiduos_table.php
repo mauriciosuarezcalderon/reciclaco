@@ -15,7 +15,13 @@ class CreateReciclaresiduosTable extends Migration
     {
         Schema::create('reciclaresiduos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('residuo', 100);
+            $table->boolean('status', 1)->default(true);
+            $table->integer('tiporesiduoId')->unsigned();
+            $table->integer('imagenId')->unsigned();
             $table->timestamps();
+            $table->foreign('tiporesiduoId')->references('id')->on('reciclatiporesiduos');
+            $table->foreign('imagenId')->references('id')->on('reciclaimagens');
         });
     }
 

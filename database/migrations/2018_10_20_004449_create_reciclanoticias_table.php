@@ -15,7 +15,12 @@ class CreateReciclanoticiasTable extends Migration
     {
         Schema::create('reciclanoticias', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('comentarioId')->unsigned();
+            $table->string('descripcion', 100);
+            $table->string('detalle', 500);
+            $table->boolean('status', 1)->default(true);
             $table->timestamps();
+            $table->foreign('comentarioId')->references('id')->on('reciclacomentarios');
         });
     }
 
