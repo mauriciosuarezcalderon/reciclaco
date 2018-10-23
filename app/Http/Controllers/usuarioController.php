@@ -104,9 +104,10 @@ class usuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(reciclausers $reciclausers, $id)
+    public function destroy($id)
     {
         //Eliminar un usuario
+        $reciclausers = reciclausers::find($id);
         $reciclausers -> delete();
         return "OK eliminado";
     }
