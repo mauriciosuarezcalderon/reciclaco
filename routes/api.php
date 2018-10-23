@@ -18,4 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Route::get('usuarios', 'usuarioController@index');
+//palabra de la url, nombre del controlador 
+
 Route::resource('usuarios', 'usuarioController');
+Route::resource('perfiles', 'reciclaperfilController');
+Route::resource('estados', 'reciclarstatusController');
+Route::resource('tiposmenu', 'tipomenuController');
+Route::resource('tiposresiduos', 'tiporesiduoController');
