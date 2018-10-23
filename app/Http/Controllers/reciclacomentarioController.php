@@ -26,6 +26,11 @@ class reciclacomentarioController extends Controller
     public function store(Request $request)
     {
         //
+        $reciclacomentarios = new reciclacomentarios;
+        $reciclacomentarios -> usuaId = $ reciclacomentarios -> usuaId;
+        $reciclacomentarios -> calificacion = $ reciclacomentarios -> calificacion;
+        $reciclacomentarios -> save();
+        return "Registro creado exitosamente";
     }
 
     /**
@@ -37,6 +42,7 @@ class reciclacomentarioController extends Controller
     public function show(reciclacomentario $reciclacomentario)
     {
         //
+        return $reciclacomentario;
     }
 
     /**

@@ -16,6 +16,7 @@ class usuarioController extends Controller
     {
         // Utilizado para mostrar la lista de los usuarios
         //return 'Hola Mundo nuevo';
+        // variable = modelo::métodos
         $usuarios = reciclausers::all();
         return $usuarios;
     }
@@ -38,7 +39,22 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
+        
+        //$Rules=['name'=>'required'];
+
+        //$this->validate($request, $Rules);
+
+        //$this->validate($request,['name' => 'required']);  
+
         //Crea un usuario
+        $reciclausers = new reciclausers;
+        $reciclausers -> email = $request -> email;
+        $reciclausers -> password = $request -> password;
+        $reciclausers -> status = $request -> status;
+        $reciclausers -> name = $request -> name;
+        $reciclausers -> perfilId = $request -> perfilId;
+        $reciclausers -> save();
+        return "Registro creado exitosamente";
     }
 
     /**
@@ -50,7 +66,9 @@ class usuarioController extends Controller
     public function show($id)
     {
         // Muestra solo un usuario
-        return 'show';
+        //return $id;
+        $data = reciclausers::find($id);
+        return $data;
     }
 
     /**
@@ -74,6 +92,10 @@ class usuarioController extends Controller
     public function update(Request $request, $id)
     {
         //Actualizar un usuario
+        $reciclausers = reciclausers::find($id);
+        $reciclausers -> fill($request->all());
+        $reciclausers -> save();
+        return $reciclausers;
     }
 
     /**
@@ -82,8 +104,10 @@ class usuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(reciclausers $reciclausers, $id)
     {
         //Eliminar un usuario
+        $reciclausers -> delete();
+        return "OK eliminado";
     }
 }

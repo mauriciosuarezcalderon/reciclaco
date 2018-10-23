@@ -24,4 +24,5 @@ Route::resource('usuarios', 'usuarioController');
 Route::resource('perfiles', 'reciclaperfilController');
 Route::resource('estados', 'reciclarstatusController');
 Route::resource('tiposmenu', 'tipomenuController');
-Route::resource('tiposresiduos', 'tiporesiduoController');
+Route::resource('comentarios', 'reciclacomentarioController');
+//Route::resource('tiposresiduos', 'tiporesiduoController');
