@@ -15,8 +15,9 @@ class tipomenuController extends Controller
     public function index()
     {
         //
-        $tipom = reciclatipomenus::all();
-        return $tipom;
+        $tipomen = reciclatipomenus::all();
+        return $tipomen;
+        //Prueba de cambio
     }
 
     /**
