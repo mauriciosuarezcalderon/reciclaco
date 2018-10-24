@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class reciclaperfil extends Model
 {
     //
+    protected $table = 'reciclaperfils';
+    protected $fillable =['perfil', 'status'];
     
     // Con el perfil se quiere traer los usuarios asociados al mismo.
     public function usuarios()

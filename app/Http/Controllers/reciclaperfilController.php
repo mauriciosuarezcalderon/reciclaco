@@ -59,9 +59,13 @@ class reciclaperfilController extends Controller
      * @param  \App\reciclaperfil  $reciclaperfil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, reciclaperfil $reciclaperfil)
+    public function update(Request $request,$id)
     {
-        //
+        //Actualizar un perfil
+        $reciclaperfil = reciclaperfil::find($id);
+        $reciclaperfil -> fill($request->all());
+        $reciclaperfil -> save();
+        return $reciclaperfil;
     }
 
     /**
@@ -70,8 +74,12 @@ class reciclaperfilController extends Controller
      * @param  \App\reciclaperfil  $reciclaperfil
      * @return \Illuminate\Http\Response
      */
-    public function destroy(reciclaperfil $reciclaperfil)
+    public function destroy($id)
     {
         //
+        //Eliminar un perfil
+        $reciclaperfil = reciclaperfil::find($id);
+        $reciclaperfil -> delete();
+        return "OK eliminado";
     }
 }

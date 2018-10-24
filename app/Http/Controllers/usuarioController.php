@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\reciclausers;
+use App\Http\Resources\UsuarioResource;
 
 class usuarioController extends Controller
 {
@@ -18,7 +19,8 @@ class usuarioController extends Controller
         //return 'Hola Mundo nuevo';
         // variable = modelo::métodos
         $usuarios = reciclausers::all();
-        return $usuarios;
+        //return $usuarios;
+        return UsuarioResource::collection($usuarios);
     }
 
     /**
@@ -67,9 +69,12 @@ class usuarioController extends Controller
     {
         // Muestra solo un usuario
         //return $id;
-        $usuario = reciclausers::find($id);
-        return $usuario -> perfil;
+        //$usuario = reciclausers::find($id);
+        //return $usuario -> perfil;
         //return $data;
+        $usuario = reciclausers::find($id);
+        return new UsuarioResource($usuario);
+
     }
 
     /**
