@@ -28,6 +28,11 @@ class reciclaperfilController extends Controller
     public function store(Request $request)
     {
         //
+        $reciclaperfil = new reciclaperfil;
+        $reciclaperfil -> perfil = $request -> perfil;
+        $reciclaperfil -> status = $request -> status;
+        $reciclaperfil -> save();
+        return "Registro creado exitosamente";
     }
 
     /**
@@ -36,9 +41,15 @@ class reciclaperfilController extends Controller
      * @param  \App\reciclaperfil  $reciclaperfil
      * @return \Illuminate\Http\Response
      */
-    public function show(reciclaperfil $reciclaperfil)
+    public function show($id)
     {
         //
+        $perfil = reciclaperfil::find($id);
+        //return $perfil -> usuarios;
+        //return $perfil -> usuarios -> first()->email;
+        //return $perfil -> usuarios -> pluck('email');
+        //return $perfil -> usuarios -> where ('id','0','1');
+        return $perfil -> usuarios -> forPage(1, 3);
     }
 
     /**

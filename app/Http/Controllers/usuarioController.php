@@ -67,8 +67,9 @@ class usuarioController extends Controller
     {
         // Muestra solo un usuario
         //return $id;
-        $data = reciclausers::find($id);
-        return $data;
+        $usuario = reciclausers::find($id);
+        return $usuario -> perfil;
+        //return $data;
     }
 
     /**
